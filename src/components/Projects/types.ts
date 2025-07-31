@@ -4,7 +4,7 @@
  * - Project: Structure for a project object.
  */
 
-export type Category = "all" | "Data Engineer" | "DevOps" | "other";
+export type Category = "all" | "Data Engineer" | "DevOps" | "Other";
 
 export type Project = {
   id: number;

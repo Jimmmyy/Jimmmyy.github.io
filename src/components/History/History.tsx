@@ -2,37 +2,7 @@
 
 import { Briefcase, GraduationCap } from "lucide-react";
 import Timeline from "./Timeline";
-
-const experiences = [
-  {
-    title: "Data Engineer",
-    org: "Company A",
-    date: "2022 – Present",
-    location: "Paris, France",
-    description: "Building data pipelines and ETL processes for analytics.",
-  },
-  {
-    title: "Data Analyst",
-    org: "Company B",
-    date: "2021 – 2022",
-    location: "Remote",
-  },
-];
-
-const education = [
-  {
-    title: "Master in Data Science",
-    org: "University X",
-    date: "2019 – 2021",
-    location: "Lyon, France",
-  },
-  {
-    title: "Bachelor in Computer Science",
-    org: "University Y",
-    date: "2016 – 2019",
-    location: "Toulouse, France",
-  },
-];
+import { experiences, education } from "@/components/History/data";
 
 const History = () => (
   <section

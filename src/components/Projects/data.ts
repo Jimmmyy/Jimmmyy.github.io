@@ -6,7 +6,7 @@
  * - projects: List of all portfolio projects.
  */
 
-export type Category = "all" | "Data Engineer" | "DevOps" | "other";
+export type Category = "all" | "Data Engineer" | "DevOps" | "Other";
 
 export type Project = {
   id: number;
@@ -22,7 +22,7 @@ export const categories: Category[] = [
   "all",
   "Data Engineer",
   "DevOps",
-  "other",
+  "Other",
 ];
 
 export const projects: Project[] = [
@@ -30,55 +30,56 @@ export const projects: Project[] = [
     id: 1,
     title: "Portfolio Website",
     description: "My personal website built with Next.js and Tailwind CSS.",
-    image: "/images/portfolio.png",
-    category: "Data Engineer",
-    link: "https://github.com/Jimmmyy/mon-portfolio",
+    image: "/images/portfolio_image.jpg",
+    category: "Other",
+    link: "https://github.com/Jimmmyy/Jimmmyy.github.io",
     techs: ["Next.js", "Tailwind", "Framer Motion"],
   },
   {
     id: 2,
-    title: "Todo App",
-    description: "A fullstack task management app using React and Firebase.",
-    image: "/images/todo.png",
+    title: "Backend API with FastAPI",
+    description: "A backend API built with FastAPI and PostgreSQL.",
+    image: "/images/fastAPI.png",
     category: "Data Engineer",
-    link: "#",
-    techs: ["React", "Firebase", "Auth"],
+    link: "https://github.com/Jimmmyy/backend-api",
+    techs: ["FastAPI", "PostgreSQL", "Docker"],
   },
   {
     id: 3,
-    title: "UI Design System",
+    title: "Wordle project from Josh Comeau Course",
     description: "Reusable UI component library for internal projects.",
-    image: "/images/ui-kit.png",
-    category: "DevOps",
-    link: "#",
+    image: "/images/wordle.png",
+    category: "Other",
+    link: "https://github.com/Jimmmyy/project-wordle-josh-course",
     techs: ["Figma", "Tailwind", "Storybook"],
   },
   {
     id: 4,
-    title: "UI Design System",
-    description: "Reusable UI component library for internal projects.",
-    image: "/images/ui-kit.png",
+    title: "Terraform module GCP",
+    description:
+      "Terraform module for GCP resources such as VPC, bastion, spark cluster, NAT, private VM.",
+    image: "/images/gcp-terraform.png",
     category: "DevOps",
     link: "#",
-    techs: ["Figma", "Tailwind", "Storybook"],
+    techs: ["Terraform", "GCP"],
   },
   {
     id: 5,
-    title: "UI Design System",
-    description: "Reusable UI component library for internal projects.",
-    image: "/images/ui-kit.png",
+    title: "Ansible PoC",
+    description: "Proof of Concept for Ansible automation.",
+    image: "/images/ansible.png",
     category: "DevOps",
     link: "#",
-    techs: ["Figma", "Tailwind", "Storybook"],
+    techs: ["Ansible", "Automation"],
   },
   {
     id: 6,
-    title: "UI Design System",
-    description: "Reusable UI component library for internal projects.",
-    image: "/images/ui-kit.png",
-    category: "DevOps",
-    link: "#",
-    techs: ["Figma", "Tailwind", "Storybook"],
+    title: "Databricks tutorial from Ansh Lamba",
+    description: "Databricks tutorial covering basics of Spark.",
+    image: "/images/databricks_spark.png",
+    category: "Data Engineer",
+    link: "https://youtu.be/94w6hPk7nkM?si=UyZR6ZmJDQ3nEpmS",
+    techs: ["Databricks", "Spark", "Python"],
   },
   // {
   //   id: 7,

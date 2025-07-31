@@ -16,7 +16,7 @@ type Props = {
 };
 
 const ProjectCard = ({ project, onClick }: Props) => (
-  <div className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 w-[280px] aspect-square">
+  <div className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 w-[280px] aspect-square min-h-[400px]">
     <Image
       src={project.image}
       alt={project.title}
