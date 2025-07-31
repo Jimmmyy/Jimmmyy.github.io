@@ -6,6 +6,7 @@ const repo = "jimmmyy.github.io"; // ← nom du repo
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  reactStrictMode: true,
   basePath: isGithubPages ? `/${repo}` : "",
   assetPrefix: isGithubPages ? `/${repo}/` : "",
   images: {
