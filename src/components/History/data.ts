@@ -31,9 +31,15 @@ export const education = [
     location: "Ivry-sur-Seine, France",
   },
   {
-    title: "High school",
-    org: "Lycée",
-    date: "2015",
+    title: "AWS Certified Solutions Architect",
+    org: "AWS",
+    date: "In progress",
+    location: "France",
+  },
+  {
+    title: "GCP Professional Data Engineer",
+    org: "Google Cloud",
+    date: "In progress",
     location: "France",
   },
 ];

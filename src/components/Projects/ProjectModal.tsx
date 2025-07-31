@@ -78,7 +78,7 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
                 rel="noopener noreferrer"
                 className="inline-block px-6 py-3 rounded-full bg-blue-700 text-white font-medium hover:bg-blue-800 transition"
               >
-                View on GitHub
+                Link
               </a>
             </>
           )}

@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jimmy Nguyen Portfolio 🚀
 
-## Getting Started
+A modern, responsive portfolio built with [Next.js](https://nextjs.org/) 15, Tailwind CSS, and Radix UI.
 
-First, run the development server:
+## ✨ Features
+
+- 👤 **Hero section**: Portrait, intro, call-to-action.
+- 🛠️ **Projects**: Category filter, animated grid, modal details.
+- 📚 **History**: Experience & Education timeline.
+- 💡 **About**: Profile, tech stack, CV download.
+- 📬 **Contact**: Dialog modal with Formspree integration.
+- 🌗 **Theme toggle**: Light/dark mode.
+- 📱 **Responsive design**: Mobile & desktop friendly.
+- 🎬 **Animations**: Framer Motion for smooth transitions.
+
+## ⚡ Getting Started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚢 Static Export & Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To build and export for GitHub Pages:
 
-## Learn More
+```bash
+pnpm build
+pnpm run deploy
+```
 
-To learn more about Next.js, take a look at the following resources:
+- The site is deployed from the `out` folder to the `gh-pages` branch.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📨 Contact Form
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Uses [Formspree](https://formspree.io/) for secure email submissions.
+- Messages open in a new tab, keeping the portfolio open.
 
-## Deploy on Vercel
+## 🖌️ Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Update project data in [`src/components/Projects/data.ts`](src/components/Projects/data.ts).
+- Add images/icons in [`public/images`](public/images) and [`public/icons`](public/icons).
+- Change theme styles in [`src/styles/theme.css`](src/styles/theme.css).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+MIT © Jimmy Nguyen
+
+---
+
+## 📜 Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md) for release history.
+
+---
+
+Made with ❤️ using Next.js & Tailwind CSS.
