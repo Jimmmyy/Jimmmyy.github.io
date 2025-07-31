@@ -16,7 +16,7 @@ const Hero = () => {
     >
       <div className="text-center md:text-left md:w-1/2">
         <p className="text-3xl font-semibold text-white mb-3 tracking-wide drop-shadow-sm">
-          Hello, I’m
+          {`Hello, I'm`}
         </p>
         <h1 className="text-6xl sm:text-7xl font-extrabold text-white mb-5 tracking-tight leading-tight drop-shadow-md">
           Jimmy Nguyen

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Project } from "@/components/Projects/types";
 
 /**
@@ -15,9 +17,11 @@ type Props = {
 
 const ProjectCard = ({ project, onClick }: Props) => (
   <div className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 w-[280px] aspect-square">
-    <img
+    <Image
       src={project.image}
       alt={project.title}
+      width={800}
+      height={600}
       className="w-full h-32 object-cover rounded-xl mb-6 border border-gray-200 dark:border-gray-800"
     />
     <h3 className="text-xl font-bold text-center text-blue-600 dark:text-blue-400 mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition">

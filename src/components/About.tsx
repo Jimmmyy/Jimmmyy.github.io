@@ -31,11 +31,14 @@ const About = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="mb-6 md:mb-0 md:pr-8 flex-shrink-0 flex justify-center w-full md:w-1/3"
       >
-        <img
-          src="/images/avatar.jpg"
-          alt="Profile picture"
-          className="w-32 h-32 rounded-full object-cover border-4 border-blue-600 dark:border-blue-400 shadow"
-        />
+        <div className="relative w-48 h-48">
+          <Image
+            src="/images/avatar.jpg"
+            alt="Profile picture"
+            fill
+            className="rounded-full object-cover border-4 border-blue-600 dark:border-blue-400 shadow"
+          />
+        </div>
       </motion.div>
 
       <motion.div
@@ -49,10 +52,10 @@ const About = () => {
           About me
         </h2>
         <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
-          I'm a data engineer with over 4 years of experience designing,
+          {`I'm a data engineer with over 4 years of experience designing,
           building, and maintaining modern data platforms. I enjoy solving
           complex data problems, working with scalable cloud infrastructure, and
-          enabling teams to make data-driven decisions through robust pipelines.
+          enabling teams to make data-driven decisions through robust pipelines.`}
         </p>
         <a
           href="/cv.pdf"
