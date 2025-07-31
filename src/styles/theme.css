@@ -1,0 +1,49 @@
+/* Custom Tailwind component styles for the portfolio.
+   Includes layouts, buttons, section titles, and project cards.
+   Also styles for drawer/modal components.
+*/
+
+@layer components {
+  /* === Layouts & Sections === */
+  .hero {
+    @apply text-center mt-20 mb-10 px-4;
+  }
+
+  .hero-title {
+    @apply text-5xl font-bold mb-4;
+  }
+
+  .hero-subtitle {
+    @apply text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto;
+  }
+
+  .btn-primary {
+    @apply inline-block px-6 py-3 rounded-full font-medium transition;
+    @apply text-white hover:bg-blue-700 dark:hover:bg-blue-600;
+  }
+  .section-title {
+    @apply text-3xl font-bold text-center mb-8;
+    @apply text-blue-600 dark:text-blue-400;
+    letter-spacing: 0.02em;
+  }
+
+  .project-card {
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl flex flex-col items-center p-6;
+  }
+}
+
+.drawer-wrapper {
+  @apply fixed inset-0 p-4 z-50;
+}
+
+.drawer-backdrop {
+  @apply absolute inset-0 bg-blue-900/60 backdrop-blur-sm;
+}
+
+.drawer {
+  @apply absolute top-0 right-0 bottom-0 w-[80vw] max-w-sm bg-white dark:bg-gray-900 p-8 flex flex-col justify-between shadow-xl rounded-l-xl;
+}
+
+.drawer-closeBtn {
+  @apply flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-blue-100 text-blue-900 hover:bg-blue-200 dark:bg-blue-800 dark:text-white dark:hover:bg-blue-700 transition cursor-pointer;
+}

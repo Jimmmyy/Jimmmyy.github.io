@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/Navbar/Navbar";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+/**
+ * Main homepage.
+ * Renders the Hero, Projects, History, About, and Footer sections.
+ */
+
+const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -25,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${outfit.variable} antialiased bg-gray-50 dark:bg-gray-950`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

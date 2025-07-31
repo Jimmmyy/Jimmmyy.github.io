@@ -1,10 +1,27 @@
-import Image from "next/image";
+import { Hero } from "@/components/Hero";
+import Projects from "@/components/Projects/Projects";
+import About from "@/components/About";
+import Footer from "@/components/Footer";
+import { History } from "@/components/History";
 
-export default function Home() {
+/**
+ * Main homepage.
+ * Renders the Hero, Projects, History, About, and Footer sections.
+ */
+
+export default function HomePage() {
   return (
-    <main className="min-h-screen p-10 bg-white text-black">
-      <h1 className="text-4xl font-bold">First version 👋</h1>
-      <p className="mt-4 text-lg">Coming soon...</p>
-    </main>
+    <>
+      <header className="w-full flex justify-end px-6 py-4">
+        {/* <ThemeToggle /> */}
+      </header>
+      <Hero />
+      <main className="flex flex-col gap-20 px-6 py-10 max-w-5xl mx-auto">
+        <Projects />
+        <History />
+        <About />
+      </main>
+      <Footer />
+    </>
   );
 }
