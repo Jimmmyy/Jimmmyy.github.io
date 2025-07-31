@@ -85,7 +85,7 @@ export const projects: Project[] = [
     id: 7,
     title: "Spark Kubernetes cluster",
     description: "A Kubernetes cluster setup for Spark applications.",
-    image: "/images/spark_k8s.png",
+    image: "/images/spark_cluster.png",
     category: "Data Engineer",
     link: "https://www.youtube.com/watch?v=dVCHcU--9aI",
     techs: ["Kubernetes", "Spark", "Docker"],

@@ -15,8 +15,18 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  generator: "Next.js",
   title: "Jimmy Nguyen | Portfolio 🌠",
+  creator: "Jimmy Nguyen",
   description: "Data Engineer Portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  alternates: {
+    languages: {
+      "en-US": "/en-US",
+    },
+  },
 };
 
 export default function RootLayout({

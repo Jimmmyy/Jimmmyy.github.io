@@ -29,59 +29,62 @@ type ProjectModalProps = {
  */
 
 const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
-  if (!project) return null; // Add this line to handle the case when project is null
+  if (!project) return null;
 
   return (
     <Root open={open} onOpenChange={onClose}>
       <Portal>
-        <Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
-        <Content className="fixed top-1/2 left-1/2 w-[90vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl z-50 flex flex-col gap-6">
-          <div className="flex justify-between items-start mb-2">
-            <Title className="text-2xl font-bold text-blue-700 dark:text-blue-400">
+        <Overlay className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40" />
+        <Content className="fixed top-1/2 left-1/2 w-[90vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-2xl z-50 flex flex-col gap-8 border border-gray-200 dark:border-gray-800">
+          <div className="flex justify-between items-start mb-4">
+            <Title className="text-3xl font-bold text-gray-900 dark:text-gray-100">
               {project.title}
             </Title>
             <Close>
-              <X className="w-6 h-6 text-gray-400 hover:text-gray-600 dark:hover:text-white cursor-pointer" />
+              <X className="w-7 h-7 text-gray-400 hover:text-blue-600 dark:hover:text-blue-300 transition cursor-pointer" />
             </Close>
           </div>
 
-          {project && (
-            <>
-              <Image
-                width={800}
-                height={600}
-                src={project.image}
-                alt={project.title}
-                className="w-full h-64 object-cover rounded-lg mb-2 border border-gray-200 dark:border-gray-700"
-              />
+          <Image
+            width={800}
+            height={600}
+            src={project.image}
+            alt={project.title}
+            className="w-full h-64 object-cover rounded-xl mb-2 border border-gray-200 dark:border-gray-800 shadow"
+          />
 
-              <p className="text-gray-700 dark:text-gray-300 mb-2 text-base">
-                {project.description}
-              </p>
+          <p className="text-gray-700 dark:text-gray-200 mb-2 text-lg text-center px-2">
+            {project.description}
+          </p>
 
-              {project.techs && (
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {project.techs.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-6 py-3 rounded-full bg-blue-700 text-white font-medium hover:bg-blue-800 transition"
-              >
-                Link
-              </a>
-            </>
+          {project.techs && (
+            <div className="flex flex-wrap gap-3 justify-center mb-2">
+              {project.techs.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-4 py-1 bg-gray-100 dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200 rounded-full font-medium shadow"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           )}
+
+          <div className="flex justify-center mt-4">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg shadow transition"
+            >
+              <span>
+                {project.link.includes("youtube.com") ||
+                project.link.includes("youtu.be")
+                  ? "Watch Video"
+                  : "View Project"}
+              </span>
+            </a>
+          </div>
         </Content>
       </Portal>
     </Root>

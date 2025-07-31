@@ -16,7 +16,7 @@ export const experiences = [
   },
   {
     title: "Apprenticeship Data Scientist",
-    org: "BPCE",
+    org: "Groupe BPCE",
     date: "2019 – 2020",
     location: "Paris, France",
     description: "R&D NLP and Data Science projects.",
