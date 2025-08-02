@@ -13,11 +13,14 @@ const config: Config = {
     "./src/app/**/*.tsx",
     "./src/components/**/*.tsx",
   ],
+
   theme: {
     extend: {
+      backgroundColor: {
+        DEFAULT: "#0a192f",
+      },
       colors: {
         background: "#0a192f", // Bleu nuit sombre
-        foreground: "#e2e8f0", // Blanc légèrement gris
         accent: "#3b82f6", // Bleu principal
         accentLight: "#60a5fa", // Bleu plus clair
         accentDark: "#1e3a8a", // Bleu foncé

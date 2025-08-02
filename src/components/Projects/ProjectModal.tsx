@@ -35,13 +35,13 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
     <Root open={open} onOpenChange={onClose}>
       <Portal>
         <Overlay className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40" />
-        <Content className="fixed top-1/2 left-1/2 w-[90vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-2xl z-50 flex flex-col gap-8 border border-gray-200 dark:border-gray-800">
+        <Content className="fixed top-1/2 left-1/2 w-[90vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-gray-900 rounded-2xl p-8 shadow-2xl z-50 flex flex-col gap-8 border border-gray-800">
           <div className="flex justify-between items-start mb-4">
-            <Title className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+            <Title className="text-3xl font-bold text-white">
               {project.title}
             </Title>
             <Close>
-              <X className="w-7 h-7 text-gray-400 hover:text-blue-600 dark:hover:text-blue-300 transition cursor-pointer" />
+              <X className="w-7 h-7 text-gray-400 hover:text-blue-600 transition cursor-pointer" />
             </Close>
           </div>
 
@@ -50,10 +50,10 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
             height={600}
             src={project.image}
             alt={project.title}
-            className="w-full h-64 object-cover rounded-xl mb-2 border border-gray-200 dark:border-gray-800 shadow"
+            className="w-full h-64 object-cover rounded-xl mb-2 border border-gray-800 shadow"
           />
 
-          <p className="text-gray-700 dark:text-gray-200 mb-2 text-lg text-center px-2">
+          <p className="text-gray-200 mb-2 text-lg text-center px-2">
             {project.description}
           </p>
 
@@ -62,7 +62,7 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
               {project.techs.map((tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-1 bg-gray-100 dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200 rounded-full font-medium shadow"
+                  className="px-4 py-1 bg-gray-800 text-sm text-gray-200 rounded-full font-medium shadow"
                 >
                   {tech}
                 </span>

@@ -21,7 +21,7 @@ const Contact = () => {
   return (
     <section id="contact" className="my-20 text-center">
       <h2 className="text-3xl font-bold mb-4">Contact</h2>
-      <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
+      <p className="text-gray-300 text-lg mb-6">
         Tu veux collaborer ou juste dire bonjour ? Envoie-moi un message !
       </p>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
@@ -31,14 +31,14 @@ const Contact = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full p-3 border rounded-md dark:bg-gray-800 dark:text-white"
+          className="w-full p-3 border rounded-md bg-gray-800 text-white"
         />
         <textarea
           placeholder="Ton message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
-          className="w-full p-3 border rounded-md dark:bg-gray-800 dark:text-white"
+          className="w-full p-3 border rounded-md bg-gray-800 text-white"
         />
         <button
           type="submit"

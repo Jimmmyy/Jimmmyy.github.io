@@ -36,9 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${outfit.variable} antialiased bg-gray-50 dark:bg-gray-950`}
-      >
+      <body className={`${outfit.variable} antialiased bg-[#030712]`}>
         <Navbar />
         {children}
       </body>

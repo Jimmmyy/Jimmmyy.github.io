@@ -28,7 +28,7 @@
   }
 
   .project-card {
-    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl flex flex-col items-center p-6;
+    @apply bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl flex flex-col items-center p-6;
   }
 }
 
@@ -41,7 +41,7 @@
 }
 
 .drawer {
-  @apply absolute top-0 right-0 bottom-0 w-[80vw] max-w-sm bg-white dark:bg-gray-900 p-8 flex flex-col justify-between shadow-xl rounded-l-xl;
+  @apply absolute top-0 right-0 bottom-0 w-[80vw] max-w-sm bg-gray-900 p-8 flex flex-col justify-between shadow-xl rounded-l-xl;
 }
 
 .drawer-closeBtn {

@@ -18,7 +18,7 @@ const Timeline = ({ items }: { items: TimelineItem[] }) => {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-4 top-0 h-full w-0.5 bg-gray-300 dark:bg-gray-700" />
+      <div className="absolute left-4 top-0 h-full w-0.5 bg-gray-700" />
       <div className="flex flex-col gap-10 pl-12">
         {items.map((item, i) => (
           <motion.div
@@ -34,27 +34,27 @@ const Timeline = ({ items }: { items: TimelineItem[] }) => {
           >
             {/* Timeline point */}
             <span
-              className={`absolute left-[-2.5rem] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-600 dark:bg-blue-400 shadow-lg border-2 border-white dark:border-gray-900 transition-all ${
+              className={`absolute left-[-2.5rem] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-400 shadow-lg border-2 border-white transition-all ${
                 active === i ? "scale-125 ring-4 ring-blue-300" : ""
               }`}
             />
             {/* Content */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-5 w-full transition-all flex items-center gap-3">
+            <div className="bg-gray-900 rounded-xl shadow p-5 w-full transition-all flex items-center gap-3">
               {/* Click me logo */}
               <ClickMe
                 active={active === i}
                 onClick={() => setActive(active === i ? null : i)}
               />
               <div className="flex-1">
-                <h4 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-1">
+                <h4 className="text-lg font-bold text-blue-400 mb-1">
                   {item.title}
                 </h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+                <p className="text-sm text-gray-300">
                   {item.org} – {item.location}
                 </p>
                 <span className="text-xs text-gray-500">{item.date}</span>
                 {active === i && (
-                  <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="mt-4 text-sm text-gray-400">
                     {item.description || "No additional details available."}
                   </div>
                 )}

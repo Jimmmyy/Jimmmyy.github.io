@@ -47,12 +47,12 @@ const ContactDialog = () => {
 
       <Portal>
         <Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm data-[state=open]:animate-fadeIn" />
-        <Content className="fixed top-1/2 left-1/2 w-[90vw] max-w-md max-h-[90vh] overflow-y-auto -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-xl z-50">
-          <Close className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 dark:hover:text-white">
+        <Content className="fixed top-1/2 left-1/2 w-[90vw] max-w-md max-h-[90vh] overflow-y-auto -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-xl p-4 sm:p-6 shadow-xl z-50">
+          <Close className="absolute top-3 right-3 text-gray-400 hover:text-white">
             ✕
           </Close>
 
-          <Title className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+          <Title className="text-xl font-bold mb-4 text-white">
             Contact Me
           </Title>
 
@@ -66,19 +66,19 @@ const ContactDialog = () => {
               name="name"
               type="text"
               placeholder="Your name"
-              className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white"
+              className="w-full px-4 py-2 rounded border border-gray-600 bg-gray-700 text-white"
             />
             <input
               name="email"
               type="email"
               placeholder="Your email"
-              className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white"
+              className="w-full px-4 py-2 rounded border border-gray-600 bg-gray-700 text-white"
             />
             <textarea
               name="message"
               placeholder="Your message"
               rows={4}
-              className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white"
+              className="w-full px-4 py-2 rounded border border-gray-600 bg-gray-700 text-white"
             />
             <button
               type="submit"

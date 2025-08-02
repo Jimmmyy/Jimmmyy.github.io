@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import ContactDialog from "@/components/Navbar/ContactDialog";
 import Image from "next/image";
 import { Menu } from "lucide-react";
@@ -16,38 +15,38 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 border-b-2 border-blue-600 dark:border-gray-500 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 border-b-2 border-gray-700 bg-[#0b1321]/70 backdrop-blur-md shadow-[0_4px_24px_0_rgba(0,0,0,0.35)]">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Left – Logo + Nav Links */}
         <div className="flex items-center space-x-6">
           {/* Desktop Nav */}
           <nav
-            className="hidden md:flex space-x-8 text-lg font-semibold font-medium tracking-wide text-gray-700 dark:text-gray-300"
+            className="hidden md:flex space-x-8 text-lg font-semibold tracking-wide text-white"
             role="navigation"
             aria-label="Main navigation"
           >
             <a
               href="#hero"
               aria-current="page"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-700 dark:hover:text-blue-400"
+              className="transition-colors duration-300 ease-in-out hover:text-blue-400"
             >
               Home
             </a>
             <a
               href="#projects"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-700 dark:hover:text-blue-400 hover:underline underline-offset-4"
+              className="transition-colors duration-300 ease-in-out hover:text-blue-400 hover:underline underline-offset-4"
             >
               Projects
             </a>
             <a
               href="#history"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-700 dark:hover:text-blue-400"
+              className="transition-colors duration-300 ease-in-out hover:text-blue-400"
             >
               History
             </a>
             <a
               href="#about"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-700 dark:hover:text-blue-400"
+              className="transition-colors duration-300 ease-in-out hover:text-blue-400"
             >
               About
             </a>
@@ -56,18 +55,15 @@ const Navbar = () => {
 
         {/* Right – Contact Button + Menu Toggle */}
         <div className="flex items-center space-x-4">
-          {/* Uncomment when ThemeToggle is ready */}
-          {/* <ThemeToggle /> */}
-
           <ContactDialog />
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            className="md:hidden p-2 rounded-md hover:bg-blue-900 transition"
             aria-label="Open mobile menu"
           >
-            <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+            <Menu className="w-6 h-6 text-white" />
           </button>
           <a
             href="https://www.linkedin.com/in/ji-nguyen/"
@@ -88,11 +84,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav (optional - toggleable dropdown if you want later) */}
+      {/* Mobile Nav (optionnel) */}
       {/* 
       {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 px-4 pb-4">
-          <a href="#hero" className="block py-2">Home</a>
+        <div className="md:hidden bg-[#0a192f] px-4 pb-4">
+          <a href="#hero" className="block py-2 text-white">Home</a>
           ...
         </div>
       )}

@@ -36,9 +36,7 @@ const Projects = () => {
       id="projects"
       className="scroll-mt-28 my-24 px-6 max-w-6xl mx-auto"
     >
-      <h2 className="section-title mb-8 text-blue-600 dark:text-blue-400">
-        Projects
-      </h2>
+      <h2 className="section-title mb-8 text-blue-400">Projects</h2>
 
       {/* Filters */}
       <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -48,8 +46,8 @@ const Projects = () => {
             onClick={() => setSelected(cat)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition ${
               selected === cat
-                ? "bg-blue-600 dark:bg-blue-500 text-white shadow"
-                : "bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-gray-800"
+                ? "bg-blue-600 text-white shadow"
+                : "bg-gray-900 text-gray-100 border border-gray-700 hover:bg-blue-950"
             }`}
           >
             {cat === "all" ? "All" : cat}
