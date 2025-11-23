@@ -1,5 +1,7 @@
 # Jimmy Nguyen Portfolio 🚀
 
+[![Deploy to GitHub Pages](https://github.com/Jimmmyy/Jimmmyy.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Jimmmyy/Jimmmyy.github.io/actions/workflows/deploy.yml)
+
 A modern, responsive portfolio built with [Next.js](https://nextjs.org/) 15, Tailwind CSS, and Radix UI.
 
 ## ✨ Features
