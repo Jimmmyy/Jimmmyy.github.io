@@ -4,6 +4,8 @@
 
 A modern, responsive portfolio built with [Next.js](https://nextjs.org/) 15, Tailwind CSS, and Radix UI.
 
+🌐 **Live site**: [https://jimmmyy.github.io/](https://jimmmyy.github.io/)
+
 ## ✨ Features
 
 - 👤 **Hero section**: Portrait, intro, call-to-action.
@@ -24,16 +26,16 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to view locally.
 
-## 🚢 Static Export & Deployment
+## 🚢 Deployment
 
-To build and export for GitHub Pages:
+The site is automatically deployed to GitHub Pages via GitHub Actions on every push to `main`.
+
+You can also manually deploy:
 
 ```bash
 pnpm build
 pnpm run deploy
 ```
-
-- The site is deployed from the `out` folder to the `gh-pages` branch.
 
 ## 📨 Contact Form
 
@@ -58,4 +60,4 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 
 ---
 
-Made with ❤️ using Next.js & Tailwind CSS.
+Made with ❤️ using Next.js
