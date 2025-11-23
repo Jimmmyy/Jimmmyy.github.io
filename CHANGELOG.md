@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.2] - 2024-11-23
+
+### Added
+
+- GitHub Actions workflow for automatic deployment to GitHub Pages on push to `main`.
+- Deploy status badge in README.
+- LinkedIn icon in navbar with hover effect.
+
+### Changed
+
+- Forced dark mode theme across the entire site (removed light mode classes).
+- Updated all components to use dark colors only (`bg-gray-900`, `text-white`, etc.).
+- Improved navbar transparency and glassmorphism effect.
+- Enhanced ProjectCard styling with consistent dark theme.
+- Updated README with live site URL and deployment info.
+
+### Fixed
+
+- Fixed GitHub Actions artifact conflict by separating build and deploy jobs.
+- Corrected border-radius on ProjectCard (was missing space in class).
+- Removed all `dark:` classes for a unified dark theme.
+
+---
+
 ## [1.0.0] - 2025-07-31
 
 ### Added
