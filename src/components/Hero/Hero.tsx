@@ -24,12 +24,12 @@ const Hero = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="text-center md:text-left md:w-1/2"
       >
-        <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-4 tracking-widest uppercase">
+        <p className="text-sm font-semibold text-blue-700 dark:text-blue-400 mb-4 tracking-widest uppercase">
           {t.hero.greeting}
         </p>
         <h1 className="text-6xl sm:text-7xl font-extrabold text-gray-900 dark:text-white mb-5 tracking-tight leading-tight">
           Jimmy{" "}
-          <span className="text-blue-600 dark:text-blue-400">
+          <span className="text-blue-700 dark:text-blue-400">
             Nguyen
           </span>
         </h1>

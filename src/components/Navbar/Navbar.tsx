@@ -25,7 +25,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-[#0b1321]/80 backdrop-blur-md shadow-sm dark:shadow-[0_4px_24px_0_rgba(0,0,0,0.35)]">
+    <header className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-gray-700 bg-slate-50/80 dark:bg-[#0b1321]/80 backdrop-blur-md shadow-sm dark:shadow-[0_4px_24px_0_rgba(0,0,0,0.35)]">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Left – Nav Links */}
         <nav
@@ -37,7 +37,7 @@ const Navbar = () => {
             <a
               key={href}
               href={href}
-              className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400"
+              className="transition-colors duration-200 hover:text-blue-700 dark:hover:text-blue-400"
             >
               {label}
             </a>
@@ -80,13 +80,13 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-[#0b1321] px-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="md:hidden bg-slate-50 dark:bg-[#0b1321] px-4 pb-4 border-t border-gray-200 dark:border-gray-700">
           {navLinks.map(({ href, label }) => (
             <a
               key={href}
               href={href}
               onClick={() => setIsMenuOpen(false)}
-              className="block py-3 text-gray-700 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition"
+              className="block py-3 text-gray-700 dark:text-white font-medium hover:text-blue-700 dark:hover:text-blue-400 transition"
             >
               {label}
             </a>

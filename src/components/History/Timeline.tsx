@@ -47,7 +47,7 @@ const Timeline = ({ items }: { items: TimelineItem[] }) => {
                 onClick={() => setActive(active === i ? null : i)}
               />
               <div className="flex-1">
-                <h4 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-1">
+                <h4 className="text-lg font-bold text-blue-700 dark:text-blue-400 mb-1">
                   {item.title}
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-gray-300">

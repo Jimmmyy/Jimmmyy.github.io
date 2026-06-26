@@ -1,30 +1,24 @@
-/* Custom Tailwind component styles for the portfolio.
-   Includes layouts, buttons, section titles, and project cards.
-*/
+/* Custom Tailwind component styles for the portfolio. */
 
 @layer components {
-  /* === Layouts & Sections === */
-  .hero {
-    @apply text-center mt-20 mb-10 px-4;
-  }
-
-  .hero-title {
-    @apply text-5xl font-bold mb-4;
-  }
-
-  .hero-subtitle {
-    @apply text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto;
-  }
-
   .btn-primary {
-    @apply inline-block px-6 py-3 rounded-full font-medium transition;
-    @apply text-white bg-blue-600 hover:bg-blue-700;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition;
+    @apply text-white bg-blue-600 hover:bg-blue-700 active:scale-95;
   }
 
+  /* Section title avec trait décoratif centré */
   .section-title {
-    @apply text-3xl font-bold text-center mb-8;
-    @apply text-blue-600 dark:text-blue-400;
+    @apply text-3xl font-bold text-center mb-2;
+    @apply text-blue-700 dark:text-blue-400;
     letter-spacing: 0.02em;
+  }
+
+  .section-title-wrapper {
+    @apply flex flex-col items-center mb-10;
+  }
+
+  .section-divider {
+    @apply w-12 h-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 mt-3 mb-0;
   }
 
   .project-card {
