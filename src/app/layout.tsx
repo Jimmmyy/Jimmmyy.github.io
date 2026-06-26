@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} antialiased bg-slate-50 dark:bg-[#030712] transition-colors duration-300`}
+        className={`${outfit.variable} antialiased bg-white dark:bg-[#030712] transition-colors duration-300`}
       >
         <Providers>
           <Navbar />

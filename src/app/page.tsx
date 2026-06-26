@@ -5,31 +5,22 @@ import Footer from "@/components/Footer";
 import { History } from "@/components/History";
 
 /**
- * Homepage — sections avec fonds alternés pour une séparation visuelle naturelle.
- * Projects : bg-white / dark légèrement plus clair
- * History  : hérite du body (slate-50 / dark)
- * About    : bg-white / dark — card interne
+ * Main homepage.
+ * Renders the Hero, Projects, History, About, and Footer sections.
  */
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero — hérite du fond body (slate-50 / dark) */}
+      <header className="w-full flex justify-end px-6 py-4">
+        {/* <ThemeToggle /> */}
+      </header>
       <Hero />
-
-      {/* Projects — fond blanc pour contraster avec le body */}
-      <div className="w-full bg-white dark:bg-[#070e1c]">
+      <main className="flex flex-col gap-20 px-6 py-10 max-w-5xl mx-auto">
         <Projects />
-      </div>
-
-      {/* History — fond body (slate-50 / dark) */}
-      <History />
-
-      {/* About — fond blanc */}
-      <div className="w-full bg-white dark:bg-[#070e1c]">
+        <History />
         <About />
-      </div>
-
+      </main>
       <Footer />
     </>
   );

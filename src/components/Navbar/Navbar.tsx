@@ -9,7 +9,7 @@ import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 /**
- * Navbar — logo JN, liens avec active state au scroll, toggles theme/lang, contact.
+ * Navbar — nom comme logo à gauche, liens avec active pill au centre, actions à droite.
  */
 
 const SECTIONS = ["hero", "projects", "history", "about"] as const;
@@ -19,24 +19,18 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState<string>("hero");
   const { t } = useLanguage();
 
-  // Active section via IntersectionObserver
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
-
     SECTIONS.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
-
       const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
         { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
       );
       observer.observe(el);
       observers.push(observer);
     });
-
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
@@ -49,20 +43,19 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-gray-800 bg-slate-50/80 dark:bg-[#0b1321]/80 backdrop-blur-md shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-6">
 
-        {/* Logo JN */}
+        {/* ── Logo texte ── */}
         <a
           href="#hero"
-          className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue-700 dark:bg-blue-600 text-white text-sm font-extrabold tracking-tight hover:bg-blue-800 dark:hover:bg-blue-500 transition select-none"
-          aria-label="Retour en haut"
+          className="flex-shrink-0 text-gray-900 dark:text-white font-bold text-base tracking-tight hover:text-blue-700 dark:hover:text-blue-400 transition-colors"
         >
-          JN
+          Jimmy <span className="text-blue-700 dark:text-blue-400">Nguyen</span>
         </a>
 
-        {/* Nav links */}
+        {/* ── Nav links desktop — pill active ── */}
         <nav
-          className="hidden md:flex space-x-8 text-sm font-semibold tracking-wide"
+          className="hidden md:flex items-center gap-1"
           role="navigation"
           aria-label="Main navigation"
         >
@@ -70,10 +63,10 @@ const Navbar = () => {
             <a
               key={href}
               href={href}
-              className={`transition-colors duration-200 pb-0.5 border-b-2 ${
+              className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeSection === id
-                  ? "text-blue-700 dark:text-blue-400 border-blue-700 dark:border-blue-400"
-                  : "text-gray-600 dark:text-gray-300 border-transparent hover:text-blue-700 dark:hover:text-blue-400"
+                  ? "bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400"
+                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/60"
               }`}
             >
               {label}
@@ -81,33 +74,23 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Right — toggles + contact + LinkedIn */}
-        <div className="flex items-center space-x-3">
+        {/* ── Actions ── */}
+        <div className="flex items-center gap-2.5">
           <ThemeToggle />
           <LanguageToggle />
           <ContactDialog />
-
           <a
             href="https://www.linkedin.com/in/ji-nguyen/"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1 transition hover:scale-110"
             aria-label="LinkedIn"
+            className="transition hover:scale-110"
           >
-            <Image
-              src="/icons/linkedin.svg"
-              alt="LinkedIn"
-              width={24}
-              height={24}
-              className="w-6 h-6 opacity-70 hover:opacity-100"
-              priority
-            />
+            <Image src="/icons/linkedin.svg" alt="LinkedIn" width={22} height={22} className="opacity-60 hover:opacity-100 transition" priority />
           </a>
-
-          {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="md:hidden p-1.5 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Toggle mobile menu"
           >
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -115,18 +98,18 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* ── Mobile Nav ── */}
       {isMenuOpen && (
-        <div className="md:hidden bg-slate-50 dark:bg-[#0b1321] px-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="md:hidden bg-slate-50 dark:bg-[#0b1321] px-4 pb-4 border-t border-gray-200 dark:border-gray-800">
           {navLinks.map(({ href, id, label }) => (
             <a
               key={href}
               href={href}
               onClick={() => setIsMenuOpen(false)}
-              className={`block py-3 font-medium transition ${
+              className={`block py-2.5 text-sm font-medium transition ${
                 activeSection === id
                   ? "text-blue-700 dark:text-blue-400"
-                  : "text-gray-600 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400"
+                  : "text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-blue-400"
               }`}
             >
               {label}

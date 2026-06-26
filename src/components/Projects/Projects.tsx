@@ -12,7 +12,10 @@ import {
 import { useLanguage } from "@/context/LanguageContext";
 
 /**
- * Projects section — filtres par catégorie, grille animée, modal.
+ * Projects section.
+ * - Displays category filters.
+ * - Shows a grid of projects filtered by category.
+ * - Opens a modal with project details when a project is selected.
  */
 const Projects = () => {
   if (!categories.includes("all")) {
@@ -30,24 +33,20 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="scroll-mt-20 w-full py-24 px-6"
+      className="scroll-mt-28 my-24 px-6 max-w-6xl mx-auto"
     >
-      <div className="max-w-6xl mx-auto">
-      <div className="section-title-wrapper">
-        <h2 className="section-title">{t.projects.title}</h2>
-        <div className="section-divider" />
-      </div>
+      <h2 className="section-title mb-8">{t.projects.title}</h2>
 
-      {/* Filtres */}
+      {/* Filters */}
       <div className="flex flex-wrap justify-center gap-3 mb-10">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelected(cat)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition border ${
               selected === cat
-                ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/20"
-                : "bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-blue-400 hover:text-blue-600 dark:hover:border-blue-500 dark:hover:text-blue-400"
+                ? "bg-blue-600 text-white border-blue-600 shadow"
+                : "bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-100 border-gray-300 dark:border-gray-700 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400"
             }`}
           >
             {cat === "all" ? t.projects.all : cat}
@@ -71,7 +70,6 @@ const Projects = () => {
           if (!isOpen) setSelectedProject(null);
         }}
       />
-      </div>
     </section>
   );
 };
