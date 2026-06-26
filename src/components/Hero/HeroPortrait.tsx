@@ -11,7 +11,7 @@ const HeroPortrait = () => (
     <div className="absolute inset-0 rounded-full border-2 border-blue-400/30 dark:border-blue-500/20 translate-x-2 translate-y-2" />
 
     {/* Cercle photo */}
-    <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/60 dark:ring-white/10">
+    <div className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/60 dark:ring-white/10">
       <Image
         src="/images/jim-v2.jpg"
         alt="Jimmy Nguyen"
@@ -19,7 +19,7 @@ const HeroPortrait = () => (
         className="object-cover"
         style={{ objectPosition: "50% 20%" }}
         priority
-        sizes="(max-width: 640px) 256px, 320px"
+        sizes="(max-width: 640px) 288px, 384px"
       />
     </div>
   </div>
