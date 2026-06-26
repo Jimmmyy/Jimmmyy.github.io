@@ -1,6 +1,5 @@
 /* Custom Tailwind component styles for the portfolio.
    Includes layouts, buttons, section titles, and project cards.
-   Also styles for drawer/modal components.
 */
 
 @layer components {
@@ -19,8 +18,9 @@
 
   .btn-primary {
     @apply inline-block px-6 py-3 rounded-full font-medium transition;
-    @apply text-white hover:bg-blue-700 dark:hover:bg-blue-600;
+    @apply text-white bg-blue-600 hover:bg-blue-700;
   }
+
   .section-title {
     @apply text-3xl font-bold text-center mb-8;
     @apply text-blue-600 dark:text-blue-400;
@@ -28,7 +28,7 @@
   }
 
   .project-card {
-    @apply bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl flex flex-col items-center p-6;
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl flex flex-col items-center p-6;
   }
 }
 
@@ -41,7 +41,7 @@
 }
 
 .drawer {
-  @apply absolute top-0 right-0 bottom-0 w-[80vw] max-w-sm bg-gray-900 p-8 flex flex-col justify-between shadow-xl rounded-l-xl;
+  @apply absolute top-0 right-0 bottom-0 w-[80vw] max-w-sm bg-white dark:bg-gray-900 p-8 flex flex-col justify-between shadow-xl rounded-l-xl;
 }
 
 .drawer-closeBtn {

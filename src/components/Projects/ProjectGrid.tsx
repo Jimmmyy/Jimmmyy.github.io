@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Project } from "@/components/Projects/types";
 import ProjectCard from "./ProjectCard";
+import { useLanguage } from "@/context/LanguageContext";
 
 type Props = {
   projects: Project[];
@@ -13,13 +14,11 @@ type Props = {
 /**
  * Renders a responsive grid of project cards.
  * Handles animation between category changes.
- * Props:
- * - projects: Array of Project objects to display.
- * - selectedCategory: Currently selected category.
- * - onProjectClick: Callback when a project is clicked.
  */
 
 const ProjectGrid = ({ projects, selectedCategory, onProjectClick }: Props) => {
+  const { t } = useLanguage();
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -40,6 +39,7 @@ const ProjectGrid = ({ projects, selectedCategory, onProjectClick }: Props) => {
             <ProjectCard
               project={project}
               onClick={() => onProjectClick(project)}
+              viewLabel={t.projects.view}
             />
           </motion.div>
         ))}

@@ -1,5 +1,36 @@
 # Changelog
 
+## [2.0.0] - 2026-06-26
+
+### Added
+
+- Dark / Light theme toggle powered by `next-themes` — persists user preference across sessions.
+- Multilanguage support (EN / FR) via a React context + translations system.
+- Language toggle button in the Navbar (EN ⇄ FR).
+- Mobile navigation menu (hamburger) — now fully functional.
+- `src/translations/index.ts` — single source of truth for all UI strings.
+- `src/context/LanguageContext.tsx` — language provider and `useLanguage` hook.
+- `src/providers/Providers.tsx` — root provider wrapping ThemeProvider + LanguageProvider.
+
+### Changed
+
+- Replaced AI-generated photo (`test.png`) with real portrait (`jim-v2.jpg`) in Hero and About sections.
+- Removed `grayscale` filter from portrait image.
+- Full light-mode color refactor: all hardcoded dark classes replaced with `dark:` variants.
+- Navbar: cleaner design, glass effect in both themes, ThemeToggle + LanguageToggle added.
+- Hero subtitle and CTA button now translated.
+- About bio, profile picture updated to `jim-v2.jpg`.
+- History, Projects, Contact dialog fully translated.
+- Footer respects theme colors.
+- Tailwind v4 dark mode configured via `@custom-variant` in CSS.
+
+### Fixed
+
+- Hydration mismatch on ThemeToggle resolved with `suppressHydrationWarning` + `mounted` guard.
+- Contact form `onSubmit` handler properly wired.
+
+---
+
 ## [1.2.2] - 2024-11-23
 
 ### Added

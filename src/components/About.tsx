@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 const technologies = [
   { name: "Python", src: "/icons/python.svg" },
@@ -19,10 +20,12 @@ const technologies = [
  */
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
     <section
       id="about"
-      className="my-20 max-w-5xl mx-auto bg-gray-900 rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center md:divide-x divide-gray-800"
+      className="my-20 max-w-5xl mx-auto bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-md dark:shadow-lg p-8 flex flex-col md:flex-row items-center md:divide-x divide-gray-200 dark:divide-gray-800 border border-gray-200 dark:border-gray-800"
     >
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -33,10 +36,10 @@ const About = () => {
       >
         <div className="relative w-48 h-48">
           <Image
-            src="/images/avatar.jpg"
+            src="/images/jim-v2.jpg"
             alt="Profile picture"
             fill
-            className="rounded-full object-cover border-4 border-blue-400 shadow"
+            className="rounded-full object-cover object-top border-4 border-blue-400 shadow-lg"
           />
         </div>
       </motion.div>
@@ -48,25 +51,24 @@ const About = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="md:pl-8 flex-1 text-center md:text-left"
       >
-        <h2 className="text-3xl font-bold mb-4 text-blue-400">About me</h2>
-        <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-          {`I'm a data engineer with over 4 years of experience designing,
-          building, and maintaining modern data platforms. I enjoy solving
-          complex data problems, working with scalable cloud infrastructure, and
-          enabling teams to make data-driven decisions through robust pipelines.`}
+        <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+          {t.about.title}
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed">
+          {t.about.bio}
         </p>
         <a
           href="/CV_JimmyNguyen.pdf"
           download
           className="inline-block px-6 py-3 rounded-full bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition"
         >
-          Download my CV
+          {t.about.downloadCv}
         </a>
 
         {/* Tech logos */}
         <div className="mt-8">
-          <h3 className="text-md font-semibold text-gray-300 mb-4">
-            Some technologies I work with:
+          <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
+            {t.about.techTitle}
           </h3>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             {technologies.map((tech) => (
@@ -76,9 +78,11 @@ const About = () => {
                   alt={tech.name}
                   width={36}
                   height={36}
-                  className="opacity-80 hover:opacity-100 transition"
+                  className="opacity-70 hover:opacity-100 transition"
                 />
-                <span className="text-xs text-gray-400 mt-1">{tech.name}</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  {tech.name}
+                </span>
               </div>
             ))}
           </div>

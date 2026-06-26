@@ -3,10 +3,10 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar/Navbar";
+import { Providers } from "@/providers/Providers";
 
 /**
- * Main homepage.
- * Renders the Hero, Projects, History, About, and Footer sections.
+ * Root layout — wraps every page with theme + language providers.
  */
 
 const outfit = Outfit({
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     languages: {
       "en-US": "/en-US",
+      "fr-FR": "/fr-FR",
     },
   },
 };
@@ -35,10 +36,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${outfit.variable} antialiased bg-[#030712]`}>
-        <Navbar />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${outfit.variable} antialiased bg-white dark:bg-[#030712] transition-colors duration-300`}
+      >
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

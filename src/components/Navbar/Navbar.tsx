@@ -2,97 +2,97 @@
 
 import { useState } from "react";
 import ContactDialog from "@/components/Navbar/ContactDialog";
+import ThemeToggle from "@/components/Navbar/ThemeToggle";
+import LanguageToggle from "@/components/Navbar/LanguageToggle";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 /**
  * Main navigation bar.
- * Contains links to all sections and a contact button.
- * Uses Radix UI Dialog for the contact modal.
+ * Contains links to all sections, theme toggle, language toggle, and a contact button.
  */
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { href: "#hero", label: t.nav.home },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#history", label: t.nav.history },
+    { href: "#about", label: t.nav.about },
+  ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 border-b-2 border-gray-700 bg-[#0b1321]/70 backdrop-blur-md shadow-[0_4px_24px_0_rgba(0,0,0,0.35)]">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Left – Logo + Nav Links */}
-        <div className="flex items-center space-x-6">
-          {/* Desktop Nav */}
-          <nav
-            className="hidden md:flex space-x-8 text-lg font-semibold tracking-wide text-white"
-            role="navigation"
-            aria-label="Main navigation"
-          >
+    <header className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-[#0b1321]/80 backdrop-blur-md shadow-sm dark:shadow-[0_4px_24px_0_rgba(0,0,0,0.35)]">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Left – Nav Links */}
+        <nav
+          className="hidden md:flex space-x-8 text-base font-semibold tracking-wide text-gray-700 dark:text-white"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          {navLinks.map(({ href, label }) => (
             <a
-              href="#hero"
-              aria-current="page"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-400"
+              key={href}
+              href={href}
+              className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400"
             >
-              Home
+              {label}
             </a>
-            <a
-              href="#projects"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-400 hover:underline underline-offset-4"
-            >
-              Projects
-            </a>
-            <a
-              href="#history"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-400"
-            >
-              History
-            </a>
-            <a
-              href="#about"
-              className="transition-colors duration-300 ease-in-out hover:text-blue-400"
-            >
-              About
-            </a>
-          </nav>
-        </div>
+          ))}
+        </nav>
 
-        {/* Right – Contact Button + Menu Toggle */}
-        <div className="flex items-center space-x-4">
+        {/* Right – Toggles + Contact + LinkedIn */}
+        <div className="flex items-center space-x-3">
+          <ThemeToggle />
+          <LanguageToggle />
           <ContactDialog />
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-blue-900 transition"
-            aria-label="Open mobile menu"
-          >
-            <Menu className="w-6 h-6 text-white" />
-          </button>
           <a
             href="https://www.linkedin.com/in/ji-nguyen/"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 transition hover:scale-110"
+            className="ml-1 transition hover:scale-110"
             aria-label="LinkedIn"
           >
             <Image
               src="/icons/linkedin.svg"
               alt="LinkedIn"
-              width={28}
-              height={28}
-              className="w-7 h-7"
+              width={26}
+              height={26}
+              className="w-6 h-6 opacity-80 hover:opacity-100"
               priority
             />
           </a>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-md text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            aria-label="Toggle mobile menu"
+          >
+            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Nav (optionnel) */}
-      {/* 
+      {/* Mobile Nav */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#0a192f] px-4 pb-4">
-          <a href="#hero" className="block py-2 text-white">Home</a>
-          ...
+        <div className="md:hidden bg-white dark:bg-[#0b1321] px-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+          {navLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setIsMenuOpen(false)}
+              className="block py-3 text-gray-700 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition"
+            >
+              {label}
+            </a>
+          ))}
         </div>
       )}
-      */}
     </header>
   );
 };
