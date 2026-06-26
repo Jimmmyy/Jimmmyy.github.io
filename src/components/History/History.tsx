@@ -11,8 +11,9 @@ const History = () => {
   return (
     <section
       id="history"
-      className="scroll-mt-28 my-24 px-4 sm:px-6 max-w-5xl mx-auto"
+      className="scroll-mt-20 w-full py-24 px-4 sm:px-6"
     >
+      <div className="max-w-5xl mx-auto">
       <div className="section-title-wrapper">
         <h2 className="section-title">{t.history.title}</h2>
         <div className="section-divider" />
@@ -35,6 +36,7 @@ const History = () => {
           </h3>
           <Timeline items={education} />
         </div>
+      </div>
       </div>
     </section>
   );

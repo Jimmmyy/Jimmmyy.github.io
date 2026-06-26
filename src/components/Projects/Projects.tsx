@@ -30,8 +30,9 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="scroll-mt-28 my-24 px-6 max-w-6xl mx-auto"
+      className="scroll-mt-20 w-full py-24 px-6"
     >
+      <div className="max-w-6xl mx-auto">
       <div className="section-title-wrapper">
         <h2 className="section-title">{t.projects.title}</h2>
         <div className="section-divider" />
@@ -70,6 +71,7 @@ const Projects = () => {
           if (!isOpen) setSelectedProject(null);
         }}
       />
+      </div>
     </section>
   );
 };

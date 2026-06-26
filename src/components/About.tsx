@@ -24,8 +24,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="my-20 max-w-5xl mx-auto bg-gray-50 dark:bg-gray-900/60 rounded-2xl shadow-md p-8 flex flex-col md:flex-row items-center gap-8 md:gap-0 md:divide-x divide-gray-200 dark:divide-gray-800 border border-gray-200 dark:border-gray-800"
+      className="scroll-mt-20 w-full py-24 px-6"
     >
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-0 md:divide-x divide-gray-200 dark:divide-gray-700">
       {/* Photo */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -95,6 +96,7 @@ const About = () => {
           </div>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };
