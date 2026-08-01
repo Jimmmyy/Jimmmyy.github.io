@@ -1,9 +1,46 @@
 @import "tailwindcss";
 
-/* Tailwind v4: class-based dark mode (used by next-themes with attribute="class") */
-@custom-variant dark (&:where(.dark, .dark *));
+/*
+ * Portfolio V4 — palette claire, quadrillage discret, accent bleu ardoise.
+ * Tokens consommés via les utilitaires Tailwind v4 (bg-surface, text-ink, font-display…).
+ */
+@theme {
+  --color-ink: #17181a;
+  --color-body: #4a4d52;
+  --color-muted: #5c6167;
+  --color-faint: #8a9099;
 
-@import "../styles/theme.css";
+  --color-accent: #3e5c76;
+  --color-accent-deep: #2c4257;
+  --color-leaf: #2f9e63;
+
+  --color-line: #e2e5e9;
+  --color-line-soft: #d3d8de;
+  --color-surface: #f4f7fa;
+  --color-surface-soft: #f7f9fb;
+  --color-tint: #dde5ec;
+  --color-tint-strong: #c8d3dd;
+
+  --animate-pulse-dot: pulse-dot 2s infinite;
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+}
+
+/* Les fonts next/font exposent leurs variables sur <body> : il faut
+   `@theme inline` pour que Tailwind référence ces var() correctement. */
+@theme inline {
+  --font-sans: var(--font-schibsted), sans-serif;
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-mono: var(--font-plex-mono), monospace;
+}
 
 html {
   scroll-behavior: smooth;
@@ -11,11 +48,13 @@ html {
 
 @layer base {
   body {
-    @apply bg-white dark:bg-[#030712] text-gray-900 dark:text-gray-100;
-    @apply font-sans antialiased transition-colors duration-300;
+    @apply bg-white text-ink font-sans antialiased;
+    background-image: linear-gradient(#f0f2f5 1px, transparent 1px),
+      linear-gradient(90deg, #f0f2f5 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
-  a {
-    @apply text-blue-600 dark:text-blue-400 hover:underline;
+  ::selection {
+    background: var(--color-tint);
   }
 }

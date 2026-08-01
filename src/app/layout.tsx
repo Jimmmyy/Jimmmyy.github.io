@@ -1,24 +1,40 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  IBM_Plex_Mono,
+  Schibsted_Grotesk,
+} from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar/Navbar";
 import { Providers } from "@/providers/Providers";
 
 /**
- * Root layout — wraps every page with theme + language providers.
+ * Root layout — wraps every page with the language provider.
  */
 
-const outfit = Outfit({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-bricolage",
+});
+
+const schibsted = Schibsted_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-schibsted",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
   generator: "Next.js",
   title: "Jimmy Nguyen | Portfolio 🌠",
   creator: "Jimmy Nguyen",
-  description: "Data Engineer Portfolio",
+  description:
+    "Data Engineer — plateformes data de bout en bout sur AWS et GCP.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -36,9 +52,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr">
       <body
-        className={`${outfit.variable} antialiased bg-white dark:bg-[#030712] transition-colors duration-300`}
+        className={`${bricolage.variable} ${schibsted.variable} ${plexMono.variable} antialiased`}
       >
         <Providers>
           <Navbar />

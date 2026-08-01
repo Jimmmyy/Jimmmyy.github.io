@@ -1,39 +1,57 @@
 import Image from "next/image";
-import { Project } from "@/components/Projects/types";
+import type { Project } from "./types";
 
 /**
- * Single project card component.
+ * Carte projet V4 — aperçu (image ou placeholder rayé), tag mono,
+ * titre display, description, chips techs. Toute la carte est un lien.
  */
 
-type Props = {
-  project: Project;
-  onClick?: () => void;
-  viewLabel?: string;
-};
-
-const ProjectCard = ({ project, onClick, viewLabel = "View" }: Props) => (
-  <div className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 w-[280px] aspect-square min-h-[400px]">
-    <Image
-      src={project.image}
-      alt={project.title}
-      width={800}
-      height={600}
-      className="w-full h-32 object-cover rounded-xl mb-6 border border-gray-100 dark:border-gray-800"
-    />
-    <h3 className="text-xl font-bold text-center text-blue-600 dark:text-blue-400 mb-2 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition">
-      {project.title}
-    </h3>
-    <p className="text-base text-center text-gray-600 dark:text-gray-300 mb-4">
-      {project.description}
-    </p>
-
-    <button
-      onClick={onClick}
-      className="mt-auto inline-block px-5 py-2 rounded-full bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition"
-    >
-      {viewLabel}
-    </button>
-  </div>
+const ProjectCard = ({ project }: { project: Project }) => (
+  <a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex flex-col bg-white border border-line rounded-[18px] overflow-hidden text-ink transition-all duration-200 hover:border-accent hover:shadow-[0_20px_40px_-20px_rgba(62,92,118,0.35)] hover:-translate-y-1"
+  >
+    <div className="relative h-[170px] bg-surface border-b border-line overflow-hidden">
+      {project.image ? (
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 370px"
+          className="object-cover"
+        />
+      ) : (
+        <div className="h-full flex items-center justify-center bg-[repeating-linear-gradient(-45deg,transparent,transparent_10px,rgba(62,92,118,0.04)_10px,rgba(62,92,118,0.04)_20px)]">
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-faint">
+            {project.placeholder}
+          </span>
+        </div>
+      )}
+    </div>
+    <div className="px-6 pt-[22px] pb-6 flex flex-col flex-1">
+      <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-accent mb-2">
+        {project.tag}
+      </p>
+      <h3 className="font-display text-[19px] font-bold leading-[1.25] mb-2.5 text-balance">
+        {project.title}
+      </h3>
+      <p className="text-sm leading-[1.6] text-body mb-4 flex-1 text-pretty">
+        {project.description}
+      </p>
+      <div className="flex flex-wrap gap-1.5">
+        {project.techs.map((tech) => (
+          <span
+            key={tech}
+            className="font-mono text-[11px] px-2.5 py-[3px] rounded-md bg-surface border border-line text-muted"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  </a>
 );
 
 export default ProjectCard;

@@ -1,90 +1,70 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useLanguage } from "@/context/LanguageContext";
-
-const technologies = [
-  { name: "Python", src: "/icons/python.svg" },
-  { name: "Airflow", src: "/icons/airflow.svg" },
-  { name: "Terraform", src: "/icons/terraform.svg" },
-  { name: "Docker", src: "/icons/docker.svg" },
-  { name: "GCP", src: "/icons/gcp.svg" },
-  { name: "AWS", src: "/icons/aws.svg" },
-];
-
 /**
- * About section.
- * Shows a profile image, a short bio, a download link for the CV,
- * and a list of technologies with icons.
+ * About V4 — carte blanche : bio à gauche, panneau de faits à droite
+ * (nom / rôle / localisation / email / statut).
  */
+
+import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 const About = () => {
   const { t } = useLanguage();
 
+  const facts = [
+    { label: t.about.fName, value: "Jimmy Nguyen" },
+    { label: t.about.fRole, value: "Data Engineer" },
+    { label: t.about.fLocation, value: "Paris, France" },
+  ];
+
   return (
-    <section
-      id="about"
-      className="my-20 max-w-5xl mx-auto bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-md dark:shadow-lg p-8 flex flex-col md:flex-row items-center md:divide-x divide-gray-200 dark:divide-gray-800 border border-gray-200 dark:border-gray-800"
-    >
+    <section id="about" className="scroll-mt-20 max-w-[1160px] mx-auto px-6 md:px-10 py-[50px]">
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="mb-6 md:mb-0 md:pr-8 flex-shrink-0 flex justify-center w-full md:w-1/3"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="bg-white border border-line rounded-[20px] p-7 md:py-12 md:px-[52px] grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-10 lg:gap-14 shadow-[0_20px_40px_-30px_rgba(23,24,26,0.15)]"
       >
-        <div className="relative w-48 h-48">
-          <Image
-            src="/images/jim-v2.jpg"
-            alt="Profile picture"
-            fill
-            className="rounded-full object-cover object-top border-4 border-blue-400 shadow-lg"
-          />
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-accent mb-3">
+            {t.about.kicker}
+          </p>
+          <h2 className="font-display text-[28px] md:text-[34px] font-bold tracking-[-0.02em] mb-[18px]">
+            {t.about.title}
+          </h2>
+          <p className="text-base leading-[1.7] text-body mb-4 text-pretty">{t.about.bio1}</p>
+          <p className="text-base leading-[1.7] text-body text-pretty">{t.about.bio2}</p>
         </div>
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="md:pl-8 flex-1 text-center md:text-left"
-      >
-        <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-400">
-          {t.about.title}
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed">
-          {t.about.bio}
-        </p>
-        <a
-          href="/CV_JimmyNguyen.pdf"
-          download
-          className="inline-block px-6 py-3 rounded-full bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition"
-        >
-          {t.about.downloadCv}
-        </a>
-
-        {/* Tech logos */}
-        <div className="mt-8">
-          <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
-            {t.about.techTitle}
-          </h3>
-          <div className="flex flex-wrap justify-center md:justify-start gap-4">
-            {technologies.map((tech) => (
-              <div key={tech.name} className="flex flex-col items-center">
-                <Image
-                  src={tech.src}
-                  alt={tech.name}
-                  width={36}
-                  height={36}
-                  className="opacity-70 hover:opacity-100 transition"
-                />
-                <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  {tech.name}
-                </span>
+        {/* ── Panneau de faits ── */}
+        <div className="bg-surface-soft border border-line rounded-[14px] px-6 py-2.5 self-start">
+          <div className="flex flex-col">
+            {facts.map(({ label, value }) => (
+              <div
+                key={label}
+                className="flex justify-between items-center gap-4 py-3.5 border-b border-line"
+              >
+                <span className="font-mono text-xs text-faint">{label}</span>
+                <span className="text-sm font-semibold">{value}</span>
               </div>
             ))}
+            <div className="flex justify-between items-center gap-4 py-3.5 border-b border-line">
+              <span className="font-mono text-xs text-faint">Email</span>
+              <a
+                href="mailto:jimmy-94@hotmail.fr"
+                className="text-sm font-semibold text-accent hover:text-accent-deep transition-colors"
+              >
+                jimmy-94@hotmail.fr
+              </a>
+            </div>
+            <div className="flex justify-between items-center gap-4 py-3.5">
+              <span className="font-mono text-xs text-faint">{t.about.fStatus}</span>
+              <span className="inline-flex items-center gap-[7px] text-sm font-semibold text-leaf">
+                <span className="w-[7px] h-[7px] rounded-full bg-leaf animate-pulse-dot" />
+                {t.about.fAvailable}
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>

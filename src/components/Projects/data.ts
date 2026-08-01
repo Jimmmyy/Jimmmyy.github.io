@@ -1,93 +1,68 @@
 /**
- * Project and category data definitions.
- * - Category: Enum of possible project categories.
- * - Project: Type definition for a project.
- * - categories: List of all available categories.
- * - projects: List of all portfolio projects.
+ * Projets choisis — contenu FR / EN (V4).
+ * Les aperçus vivent dans public/images/projects/.
  */
 
-export type Category = "all" | "Data Engineer" | "DevOps" | "Other";
+import type { Lang } from "@/translations";
+import type { Project } from "./types";
 
-export type Project = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  category: Category;
-  link: string;
-  techs?: string[];
+export const projects: Record<Lang, Project[]> = {
+  fr: [
+    {
+      tag: "Infra · Data",
+      title: "Infrastructure GCP + cluster Spark",
+      description:
+        "6 modules Terraform réutilisables et un cluster Spark 1 master / 2 workers sur VM privées, configuré avec Ansible. Bastion unique point d'entrée SSH.",
+      techs: ["Terraform", "Ansible", "GCP", "Spark"],
+      link: "https://github.com/Jimmmyy",
+      image: "/images/projects/gcp-terraform.png",
+    },
+    {
+      tag: "Data · Python",
+      title: "Matching de mots-clés",
+      description:
+        "2 matchers interchangeables (Pandas / Polars) derrière un pattern Strategy. Architecture en couches, CLI Typer, mypy strict, double config SQLite / PostgreSQL.",
+      techs: ["Python", "Polars", "PostgreSQL"],
+      link: "https://github.com/Jimmmyy",
+      image: "/images/projects/keyword_matching_system.jpg",
+    },
+    {
+      tag: "Mobile · Escalade",
+      title: "Crux — suivi d'escalade",
+      description:
+        "App mobile de suivi de progression et de séances d'entraînement. Expo Router, store Zustand, notifications push — la même exigence de qualité qu'au boulot.",
+      techs: ["React Native", "TypeScript", "Supabase"],
+      link: "https://github.com/Jimmmyy",
+      image: "/images/projects/crux_icon.png",
+    },
+  ],
+  en: [
+    {
+      tag: "Infra · Data",
+      title: "GCP infrastructure + Spark cluster",
+      description:
+        "6 reusable Terraform modules and a 1-master / 2-worker Spark cluster on private VMs, configured with Ansible. Bastion as the only SSH entry point.",
+      techs: ["Terraform", "Ansible", "GCP", "Spark"],
+      link: "https://github.com/Jimmmyy",
+      image: "/images/projects/gcp-terraform.png",
+    },
+    {
+      tag: "Data · Python",
+      title: "Keyword matching",
+      description:
+        "2 interchangeable matchers (Pandas / Polars) behind a Strategy pattern. Layered architecture, Typer CLI, strict mypy, dual SQLite / PostgreSQL setup.",
+      techs: ["Python", "Polars", "PostgreSQL"],
+      link: "https://github.com/Jimmmyy",
+      image: "/images/projects/keyword_matching_system.jpg",
+    },
+    {
+      tag: "Mobile · Climbing",
+      title: "Crux — climbing tracker",
+      description:
+        "Mobile app tracking climbing progress and training sessions. Expo Router, Zustand store, push notifications — the same quality bar as at work.",
+      techs: ["React Native", "TypeScript", "Supabase"],
+      link: "https://github.com/Jimmmyy",
+      image: "/images/projects/crux_icon.png",
+    },
+  ],
 };
-
-export const categories: Category[] = [
-  "all",
-  "Data Engineer",
-  "DevOps",
-  "Other",
-];
-
-export const projects: Project[] = [
-  {
-    id: 1,
-    title: "Portfolio Website",
-    description: "My personal website built with Next.js and Tailwind CSS.",
-    image: "/images/portfolio_image.jpg",
-    category: "Other",
-    link: "https://github.com/Jimmmyy/Jimmmyy.github.io",
-    techs: ["Next.js", "Tailwind", "Framer Motion"],
-  },
-  {
-    id: 2,
-    title: "Backend API with FastAPI",
-    description: "A backend API built with FastAPI and PostgreSQL.",
-    image: "/images/fastAPI.png",
-    category: "Data Engineer",
-    link: "https://github.com/Jimmmyy/backend-api",
-    techs: ["FastAPI", "PostgreSQL", "Docker"],
-  },
-  {
-    id: 3,
-    title: "Wordle project from Josh Comeau Course",
-    description: "Reusable UI component library for internal projects.",
-    image: "/images/wordle.png",
-    category: "Other",
-    link: "https://github.com/Jimmmyy/project-wordle-josh-course",
-    techs: ["Figma", "Tailwind", "Storybook"],
-  },
-  {
-    id: 4,
-    title: "Terraform module GCP",
-    description:
-      "Terraform module for GCP resources such as VPC, bastion, spark cluster, NAT, private VM.",
-    image: "/images/gcp-terraform.png",
-    category: "DevOps",
-    link: "#",
-    techs: ["Terraform", "GCP"],
-  },
-  {
-    id: 5,
-    title: "Ansible PoC",
-    description: "Proof of Concept for Ansible automation.",
-    image: "/images/ansible.png",
-    category: "DevOps",
-    link: "#",
-    techs: ["Ansible", "Automation"],
-  },
-  {
-    id: 6,
-    title: "Databricks tutorial from Ansh Lamba",
-    description: "Databricks tutorial covering basics of Spark.",
-    image: "/images/databricks_spark.png",
-    category: "Data Engineer",
-    link: "https://youtu.be/94w6hPk7nkM?si=UyZR6ZmJDQ3nEpmS",
-    techs: ["Databricks", "Spark", "Python"],
-  },
-  {
-    id: 7,
-    title: "Spark Kubernetes cluster",
-    description: "A Kubernetes cluster setup for Spark applications.",
-    image: "/images/spark_cluster.png",
-    category: "Data Engineer",
-    link: "https://www.youtube.com/watch?v=dVCHcU--9aI",
-    techs: ["Kubernetes", "Spark", "Docker"],
-  },
-];

@@ -1,31 +1,14 @@
-"use client";
-
-import pkg from "../../package.json";
-import { useLanguage } from "@/context/LanguageContext";
-
 /**
- * Footer component.
- * Displays copyright, portfolio version, and a link to the release.
+ * Footer V4 — copyright + coordonnées Paris en mono.
  */
 
-const Footer = () => {
-  const { t } = useLanguage();
-
-  return (
-    <footer className="w-full mt-24 py-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
-      <p>
-        © {new Date().getFullYear()} {t.footer.rights} —{" "}
-        <a
-          href={`https://github.com/Jimmmyy/Jimmmyy.github.io/releases/tag/v${pkg.version}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 dark:text-blue-400 hover:underline"
-        >
-          v{pkg.version}
-        </a>
-      </p>
-    </footer>
-  );
-};
+const Footer = () => (
+  <footer className="max-w-[1160px] mx-auto px-6 md:px-10 pt-2.5 pb-11 flex flex-col sm:flex-row items-center justify-between gap-2">
+    <p className="text-[13px] text-faint">
+      © {new Date().getFullYear()} Jimmy Nguyen
+    </p>
+    <p className="font-mono text-[11px] text-faint">Paris · 48.85°N 2.35°E</p>
+  </footer>
+);
 
 export default Footer;

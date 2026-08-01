@@ -1,26 +1,27 @@
 import { Hero } from "@/components/Hero";
-import Projects from "@/components/Projects/Projects";
 import About from "@/components/About";
+import Skills from "@/components/Skills";
+import { Projects } from "@/components/Projects";
+import { Experience } from "@/components/Experience";
+import Terrain from "@/components/Terrain";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { History } from "@/components/History";
 
 /**
- * Main homepage.
- * Renders the Hero, Projects, History, About, and Footer sections.
+ * Homepage V4 — sections sur fond quadrillé commun :
+ * Hero → About → Stack → Projets → Parcours → Terrain → Contact.
  */
 
 export default function HomePage() {
   return (
     <>
-      <header className="w-full flex justify-end px-6 py-4">
-        {/* <ThemeToggle /> */}
-      </header>
       <Hero />
-      <main className="flex flex-col gap-20 px-6 py-10 max-w-5xl mx-auto">
-        <Projects />
-        <History />
-        <About />
-      </main>
+      <About />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Terrain />
+      <Contact />
       <Footer />
     </>
   );

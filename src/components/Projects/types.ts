@@ -1,17 +1,15 @@
 /**
- * Type definitions for Projects.
- * - Category: Enum of possible categories.
- * - Project: Structure for a project object.
+ * Type definitions for Projects (V4).
  */
 
-export type Category = "all" | "Data Engineer" | "DevOps" | "Other";
-
 export type Project = {
-  id: number;
+  tag: string;
   title: string;
   description: string;
-  image: string;
-  category: Category;
+  techs: string[];
   link: string;
-  techs?: string[];
+  /** Chemin public de l'aperçu ; absent → placeholder stylé. */
+  image?: string;
+  /** Libellé affiché dans le placeholder quand il n'y a pas d'image. */
+  placeholder?: string;
 };

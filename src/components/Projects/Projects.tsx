@@ -1,75 +1,26 @@
 "use client";
 
-import { useState } from "react";
-import ProjectModal from "@/components/Projects/ProjectModal";
-import ProjectGrid from "@/components/Projects/ProjectGrid";
-import {
-  projects,
-  categories,
-  Category,
-  Project,
-} from "@/components/Projects/data";
-import { useLanguage } from "@/context/LanguageContext";
-
 /**
- * Projects section.
- * - Displays category filters.
- * - Shows a grid of projects filtered by category.
- * - Opens a modal with project details when a project is selected.
+ * Projects V4 — grille de 3 cartes projets, contenu selon la langue.
  */
-const Projects = () => {
-  if (!categories.includes("all")) {
-    throw new Error('Initial category "all" is not present in categories array.');
-  }
-  const [selected, setSelected] = useState<Category>("all");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const { t } = useLanguage();
 
-  const filteredProjects =
-    selected === "all"
-      ? projects
-      : projects.filter((p) => p.category === selected);
+import { useLanguage } from "@/context/LanguageContext";
+import SectionHeading from "@/components/SectionHeading";
+import ProjectCard from "./ProjectCard";
+import { projects } from "./data";
+
+const Projects = () => {
+  const { lang, t } = useLanguage();
 
   return (
-    <section
-      id="projects"
-      className="scroll-mt-28 my-24 px-6 max-w-6xl mx-auto"
-    >
-      <h2 className="section-title mb-8">{t.projects.title}</h2>
+    <section id="work" className="scroll-mt-20 max-w-[1160px] mx-auto px-6 md:px-10 pt-20 pb-5">
+      <SectionHeading kicker={t.work.kicker} title={t.work.title} />
 
-      {/* Filters */}
-      <div className="flex flex-wrap justify-center gap-3 mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelected(cat)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition border ${
-              selected === cat
-                ? "bg-blue-600 text-white border-blue-600 shadow"
-                : "bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-100 border-gray-300 dark:border-gray-700 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400"
-            }`}
-          >
-            {cat === "all" ? t.projects.all : cat}
-          </button>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
+        {projects[lang].map((project) => (
+          <ProjectCard key={project.title} project={project} />
         ))}
       </div>
-
-      {filteredProjects.length === 0 ? (
-        <div className="text-center text-gray-400 py-12">{t.projects.noProjects}</div>
-      ) : (
-        <ProjectGrid
-          projects={filteredProjects}
-          selectedCategory={selected}
-          onProjectClick={setSelectedProject}
-        />
-      )}
-      <ProjectModal
-        project={selectedProject}
-        open={!!selectedProject}
-        onClose={(isOpen) => {
-          if (!isOpen) setSelectedProject(null);
-        }}
-      />
     </section>
   );
 };

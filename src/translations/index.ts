@@ -1,105 +1,133 @@
 /**
- * Portfolio translations — FR / EN
+ * Portfolio translations — FR / EN (Portfolio V4)
  * Usage: import { translations } from "@/translations";
  */
 
-export type Lang = "en" | "fr";
+export type Lang = "fr" | "en";
 
 export const translations = {
-  en: {
-    nav: {
-      home: "Home",
-      projects: "Projects",
-      history: "History",
-      about: "About",
-      contact: "Contact me",
-    },
-    hero: {
-      greeting: "Hello, I'm",
-      subtitle:
-        "Data Engineer with a passion for building scalable data platforms and enabling data-driven decisions.",
-      cta: "See my work",
-    },
-    projects: {
-      title: "Projects",
-      all: "All",
-      noProjects: "No projects found for this category.",
-      view: "View",
-      viewProject: "View Project",
-      watchVideo: "Watch Video",
-    },
-    history: {
-      title: "History",
-      experience: "Experience",
-      education: "Education",
-      noDetails: "No additional details available.",
-    },
-    about: {
-      title: "About me",
-      bio: "I'm a data engineer with over 4 years of experience designing, building, and maintaining modern data platforms. I enjoy solving complex data problems, working with scalable cloud infrastructure, and enabling teams to make data-driven decisions through robust pipelines.",
-      downloadCv: "Download my CV",
-      techTitle: "Some technologies I work with:",
-    },
-    contact: {
-      title: "Contact Me",
-      name: "Your name",
-      email: "Your email",
-      message: "Your message",
-      send: "Send",
-      fillAllFields: "Please fill in all fields.",
-      invalidEmail: "Please enter a valid email address.",
-      success: "Message sent! Thank you.",
-    },
-    footer: {
-      rights: "Jimmy Nguyen",
-    },
-  },
   fr: {
     nav: {
-      home: "Accueil",
-      projects: "Projets",
-      history: "Parcours",
       about: "À propos",
-      contact: "Me contacter",
+      skills: "Stack",
+      work: "Projets",
+      experience: "Parcours",
+      terrain: "Terrain",
+      contact: "Contact",
     },
     hero: {
-      greeting: "Bonjour, je suis",
+      badge: "Data Engineer — disponible",
       subtitle:
-        "Ingénieur Data passionné par la construction de plateformes de données scalables et l'aide à la prise de décision data-driven.",
+        "Je construis des plateformes data de bout en bout sur AWS et GCP — pipelines robustes, infrastructure as code et choix techniques assumés.",
       cta: "Voir mes projets",
-    },
-    projects: {
-      title: "Projets",
-      all: "Tous",
-      noProjects: "Aucun projet trouvé pour cette catégorie.",
-      view: "Voir",
-      viewProject: "Voir le projet",
-      watchVideo: "Voir la vidéo",
-    },
-    history: {
-      title: "Parcours",
-      experience: "Expérience",
-      education: "Formation",
-      noDetails: "Aucun détail disponible.",
+      contact: "Me contacter",
+      years: "ans d'expérience",
+      photoAlt: "Jimmy Nguyen — pont suspendu, Taïwan",
     },
     about: {
-      title: "À propos",
-      bio: "Je suis ingénieur data avec plus de 4 ans d'expérience dans la conception, la construction et la maintenance de plateformes de données modernes. J'aime résoudre des problèmes de données complexes, travailler avec une infrastructure cloud scalable, et permettre aux équipes de prendre des décisions éclairées grâce à des pipelines robustes.",
-      downloadCv: "Télécharger mon CV",
-      techTitle: "Technologies que j'utilise :",
+      kicker: "À propos",
+      title: "Curieux, rigoureux, terrain",
+      bio1: "6 ans d'expérience en data engineering, dont 2 comme Lead d'une squad de 6 personnes. J'aime comprendre le besoin métier en profondeur, poser une architecture simple, puis l'automatiser jusqu'au bout.",
+      bio2: "Hors du bureau : escalade, montagne et voyages.",
+      fName: "nom",
+      fRole: "rôle",
+      fLocation: "localisation",
+      fStatus: "statut",
+      fAvailable: "Disponible",
+    },
+    skills: {
+      kicker: "Stack",
+      title: "Technologies au quotidien",
+      more: "+ dbt · Spark · PostgreSQL · Iceberg · Trino · Polars · Kubernetes · Vault · Grafana · Prometheus · Pytest · mypy",
+    },
+    work: {
+      kicker: "Projets",
+      title: "Projets choisis",
+    },
+    exp: {
+      kicker: "Parcours",
+      title: "Expérience",
+    },
+    terrain: {
+      kicker: "Terrain",
+      title: "Hors du bureau",
+      intro: "Escalade, montagne et voyages.",
+      cap1: "Escalade",
+      cap2: "Montagne",
+      cap3: "Voyage",
+      soon: "Photo à venir",
     },
     contact: {
-      title: "Me contacter",
+      kicker: "Contact",
+      title: "Un projet data ? Parlons-en.",
+      sub: "Je cherche un rôle hands-on où je peux porter la plateforme et les choix techniques. Basé à Paris, ouvert au remote.",
       name: "Votre nom",
       email: "Votre email",
       message: "Votre message",
       send: "Envoyer",
-      fillAllFields: "Veuillez remplir tous les champs.",
-      invalidEmail: "Veuillez entrer une adresse email valide.",
-      success: "Message envoyé ! Merci.",
-    },
-    footer: {
-      rights: "Jimmy Nguyen",
+      mailSubject: "Contact depuis ton portfolio",
     },
   },
-} as const;
+  en: {
+    nav: {
+      about: "About",
+      skills: "Stack",
+      work: "Work",
+      experience: "Experience",
+      terrain: "Terrain",
+      contact: "Contact",
+    },
+    hero: {
+      badge: "Data Engineer — available",
+      subtitle:
+        "I build end-to-end data platforms on AWS and GCP — robust pipelines, infrastructure as code and clear technical choices.",
+      cta: "View my work",
+      contact: "Contact me",
+      years: "years experience",
+      photoAlt: "Jimmy Nguyen — suspension bridge, Taiwan",
+    },
+    about: {
+      kicker: "About",
+      title: "Curious, rigorous, hands-on",
+      bio1: "6 years of data engineering experience, including 2 leading a squad of 6. I like to deeply understand the business need, design a simple architecture, then automate it all the way.",
+      bio2: "Off the desk: climbing, mountains and travel.",
+      fName: "name",
+      fRole: "role",
+      fLocation: "location",
+      fStatus: "status",
+      fAvailable: "Available",
+    },
+    skills: {
+      kicker: "Stack",
+      title: "Technologies I work with",
+      more: "+ dbt · Spark · PostgreSQL · Iceberg · Trino · Polars · Kubernetes · Vault · Grafana · Prometheus · Pytest · mypy",
+    },
+    work: {
+      kicker: "Work",
+      title: "Selected projects",
+    },
+    exp: {
+      kicker: "Career",
+      title: "Experience",
+    },
+    terrain: {
+      kicker: "Terrain",
+      title: "Off the desk",
+      intro: "Climbing, mountains and travel.",
+      cap1: "Climbing",
+      cap2: "Mountains",
+      cap3: "Travel",
+      soon: "Photo coming soon",
+    },
+    contact: {
+      kicker: "Contact",
+      title: "A data project? Let's talk.",
+      sub: "I'm looking for a hands-on role where I can own the platform and the technical choices. Based in Paris, open to remote.",
+      name: "Your name",
+      email: "Your email",
+      message: "Your message",
+      send: "Send",
+      mailSubject: "Contact from your portfolio",
+    },
+  },
+};
